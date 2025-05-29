@@ -20,6 +20,16 @@
         </li>
       </ul>
     </div>
+    <div class="supports__button-wrapper">
+      <btn class="supports__button">
+        apply for help
+        <img
+          src="../assets/images/imgArrowRight.png"
+          alt="Arrow right"
+          class="supports__icon"
+        />
+      </btn>
+    </div>
   </div>
 </template>
 
@@ -86,6 +96,7 @@ export default {
 
   &__list-wrapper {
     margin-top: 4rem;
+    margin-bottom: 7rem;
   }
 
   &__list {
@@ -113,6 +124,22 @@ export default {
   &__name {
     font-size: 1.25rem;
     font-weight: 500;
+  }
+
+  &__button {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    background-color: #ff97d0;
+    color: #000000;
+    cursor: pointer;
+    font-weight: 600;
+    border: 3px solid #000000;
+  }
+
+  &__icon {
+    width: 2rem;
+    margin-left: 0.5rem;
   }
 }
 </style>
