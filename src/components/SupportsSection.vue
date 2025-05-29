@@ -34,6 +34,9 @@
 </template>
 
 <script>
+import { nextTick } from "vue";
+import { gsap, ScrollTrigger } from "@/plugins/gsap";
+
 export default {
   name: "SupportsSection",
   data() {
@@ -71,6 +74,47 @@ export default {
         { name: "Best friends" },
       ],
     };
+  },
+  mounted() {
+    nextTick(() => {
+      const animateBatch = (batch) => {
+        gsap.fromTo(
+          batch,
+          { y: 50, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: { each: 0.1, amount: 0.3 },
+            ease: "power2.out",
+          }
+        );
+      };
+
+      ScrollTrigger.batch(".supports__card", {
+        onEnter: animateBatch,
+        onEnterBack: animateBatch,
+        start: "top 90%",
+      });
+
+      const buttonWrapper = this.$el.querySelector(".supports__button-wrapper");
+      gsap.fromTo(
+        buttonWrapper,
+        { x: -100, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: buttonWrapper,
+            start: "top 90%",
+            toggleActions: "restart none none none",
+            once: false,
+          },
+        }
+      );
+    });
   },
 };
 </script>

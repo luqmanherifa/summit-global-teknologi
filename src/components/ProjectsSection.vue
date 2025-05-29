@@ -25,6 +25,9 @@
 </template>
 
 <script>
+import { nextTick } from "vue";
+import { gsap, ScrollTrigger } from "@/plugins/gsap";
+
 export default {
   name: "ProjectsSection",
   data() {
@@ -47,6 +50,26 @@ export default {
         },
       ],
     };
+  },
+  mounted() {
+    nextTick(() => {
+      const animateCard = (card) => {
+        gsap.fromTo(
+          card,
+          { x: -100, opacity: 0 },
+          { x: 0, opacity: 1, duration: 1, ease: "power2.out" }
+        );
+      };
+
+      gsap.utils.toArray(".projects__card").forEach((card) => {
+        ScrollTrigger.create({
+          trigger: card,
+          start: "top 90%",
+          onEnter: () => animateCard(card),
+          onEnterBack: () => animateCard(card),
+        });
+      });
+    });
   },
 };
 </script>
