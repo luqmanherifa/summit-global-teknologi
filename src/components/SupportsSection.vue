@@ -89,7 +89,6 @@ export default {
   }
 
   &__list {
-    list-style: none;
     padding: 0;
     gap: 3.2rem;
     display: flex;
