@@ -100,6 +100,7 @@ export default {
   &__logo {
     width: 227px;
     height: auto;
+    filter: grayscale(100%);
   }
 }
 </style>

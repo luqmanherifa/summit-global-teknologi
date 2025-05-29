@@ -169,6 +169,7 @@ export default {
   &__photo {
     width: 170px;
     height: 170px;
+    filter: grayscale(100%);
   }
 
   &__name {
