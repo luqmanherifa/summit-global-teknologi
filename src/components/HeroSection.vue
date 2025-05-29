@@ -2,7 +2,7 @@
   <div class="hero">
     <div class="hero__header">
       <img
-        src="../assets/images/627fc7fcdc0f8e9cbcc8ffed_isa-logo-dog-clean.svg"
+        src="../assets/images/heroDog.svg"
         alt="ISA Logo Dog"
         class="hero__logo"
       />
@@ -52,13 +52,14 @@ export default {
 
 <style scoped lang="scss">
 .hero {
-  background-color: yellow;
+  background-color: #fcf944;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   min-height: 600px;
+  color: #000000;
 
   &__header {
     display: flex;
@@ -68,14 +69,14 @@ export default {
   }
 
   &__logo {
-    width: 230px;
+    width: 200px;
     height: auto;
   }
 
   &__title {
     font-size: 3.5rem;
     width: 300px;
-    line-height: 1.2;
+    line-height: 1;
     text-align: left;
   }
 
@@ -94,7 +95,6 @@ export default {
 
   &__social-link {
     font-size: 1.5rem;
-    color: #000;
     text-decoration: none;
 
     &:hover {
