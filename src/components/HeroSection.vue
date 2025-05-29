@@ -20,14 +20,21 @@
           target="_blank"
           rel="noopener"
           class="hero__social-link"
-          >{{ link.name }}</a
         >
+          <img :src="link.icon" :alt="link.name" class="hero__social-icon" />
+        </a>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+import iconFacebook from "@/assets/images/iconFacebook.svg";
+import iconInstagram from "@/assets/images/iconInstagram.svg";
+import iconYoutube from "@/assets/images/iconYoutube.svg";
+import iconPatreon from "@/assets/images/iconPatreon.svg";
+import iconTelegram from "@/assets/images/iconTelegram.svg";
+
 export default {
   name: "HeroSection",
   data() {
@@ -36,14 +43,28 @@ export default {
         {
           name: "youtube",
           href: "https://www.youtube.com/channel/UCflad3HMzVzumevfDEqJFFQ/featured",
+          icon: iconYoutube,
         },
         {
           name: "instagram",
           href: "https://www.instagram.com/isa.official.ua/",
+          icon: iconInstagram,
         },
-        { name: "facebook", href: "https://www.facebook.com/isa.co.ua" },
-        { name: "patreon", href: "https://www.patreon.com/isa_co_ua" },
-        { name: "telegram", href: "https://t.me/isa_co_ua" },
+        {
+          name: "facebook",
+          href: "https://www.facebook.com/isa.co.ua",
+          icon: iconFacebook,
+        },
+        {
+          name: "patreon",
+          href: "https://www.patreon.com/isa_co_ua",
+          icon: iconPatreon,
+        },
+        {
+          name: "telegram",
+          href: "https://t.me/isa_co_ua",
+          icon: iconTelegram,
+        },
       ],
     };
   },
@@ -65,7 +86,7 @@ export default {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 2rem;
+    gap: 3rem;
   }
 
   &__logo {
@@ -82,7 +103,7 @@ export default {
 
   &__subtitle {
     font-size: 2rem;
-    margin-top: 1rem;
+    margin-top: 2rem;
   }
 
   &__socials {
@@ -100,6 +121,11 @@ export default {
     &:hover {
       text-decoration: underline;
     }
+  }
+
+  &__social-icon {
+    width: 48px;
+    height: 48px;
   }
 }
 </style>

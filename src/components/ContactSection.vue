@@ -11,12 +11,16 @@
           :key="index"
         >
           <a
-            class="contact__social-link"
             :href="link.href"
             target="_blank"
             rel="noopener"
+            class="contact__social-link"
           >
-            {{ link.name }}
+            <img
+              :src="link.icon"
+              :alt="link.name"
+              class="contact__social-icon"
+            />
           </a>
         </li>
       </ul>
@@ -32,6 +36,12 @@
 </template>
 
 <script>
+import iconFacebook from "@/assets/images/iconFacebook.svg";
+import iconInstagram from "@/assets/images/iconInstagram.svg";
+import iconYoutube from "@/assets/images/iconYoutube.svg";
+import iconPatreon from "@/assets/images/iconPatreon.svg";
+import iconTelegram from "@/assets/images/iconTelegram.svg";
+
 export default {
   name: "ContactSection",
   data() {
@@ -40,14 +50,28 @@ export default {
         {
           name: "youtube",
           href: "https://www.youtube.com/channel/UCflad3HMzVzumevfDEqJFFQ/featured",
+          icon: iconYoutube,
         },
         {
           name: "instagram",
           href: "https://www.instagram.com/isa.official.ua/",
+          icon: iconInstagram,
         },
-        { name: "facebook", href: "https://www.facebook.com/isa.co.ua" },
-        { name: "patreon", href: "https://www.patreon.com/isa_co_ua" },
-        { name: "telegram", href: "https://t.me/isa_co_ua" },
+        {
+          name: "facebook",
+          href: "https://www.facebook.com/isa.co.ua",
+          icon: iconFacebook,
+        },
+        {
+          name: "patreon",
+          href: "https://www.patreon.com/isa_co_ua",
+          icon: iconPatreon,
+        },
+        {
+          name: "telegram",
+          href: "https://t.me/isa_co_ua",
+          icon: iconTelegram,
+        },
       ],
     };
   },
@@ -87,6 +111,11 @@ export default {
   &__image {
     width: 540px;
     height: auto;
+  }
+
+  &__social-icon {
+    width: 48px;
+    height: 48px;
   }
 }
 </style>
