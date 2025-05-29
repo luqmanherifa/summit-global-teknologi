@@ -1,18 +1,22 @@
 <template>
   <div class="projects">
-    <div>
-      <h1>Our projects</h1>
-      <p>
+    <div class="projects__header">
+      <h1 class="projects__title">Our projects</h1>
+      <p class="projects__subtitle">
         are very different in terms of priority, scale and complexity of
         implementation
       </p>
     </div>
-    <div>
-      <ul>
-        <li v-for="(project, index) in projectsList" :key="index">
-          <div>
-            <h2>{{ project.name }}</h2>
-            <p>{{ project.desc }}</p>
+    <div class="projects__list-wrapper">
+      <ul class="projects__list">
+        <li
+          class="projects__item"
+          v-for="(project, index) in projectsList"
+          :key="index"
+        >
+          <div class="projects__card">
+            <h2 class="projects__name">{{ project.name }}</h2>
+            <p class="projects__desc">{{ project.desc }}</p>
           </div>
         </li>
       </ul>
@@ -44,4 +48,59 @@ export default {
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.projects {
+  display: flex;
+  flex-direction: column;
+  background-color: #3e88ff;
+  color: white;
+  padding: 9rem;
+  text-align: left;
+
+  &__title {
+    font-size: 3.2rem;
+    margin-bottom: 1rem;
+  }
+
+  &__subtitle {
+    font-size: 2.2rem;
+    line-height: 1.5;
+    margin-bottom: 3.5rem;
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__card {
+    padding: 3.5rem;
+    color: white;
+    border: white 2px solid;
+  }
+
+  &__item:nth-child(1) .projects__card {
+    background-color: #000000;
+  }
+
+  &__item:nth-child(2) .projects__card {
+    background-color: #31be32;
+  }
+
+  &__item:nth-child(3) .projects__card {
+    background-color: #ff97d0;
+  }
+
+  &__name {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__desc {
+    font-size: 1.8rem;
+    line-height: 1.3;
+  }
+}
+</style>
