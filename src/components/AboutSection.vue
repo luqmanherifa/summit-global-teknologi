@@ -38,8 +38,28 @@
 </template>
 
 <script>
+import { gsap, ScrollTrigger } from "@/plugins/gsap";
+
 export default {
   name: "AboutSection",
+  mounted() {
+    const video = this.$el.querySelector(".about__video");
+
+    const animateVideo = () => {
+      gsap.fromTo(
+        video,
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, ease: "power2.out" }
+      );
+    };
+
+    ScrollTrigger.create({
+      trigger: video,
+      start: "top 80%",
+      onEnter: animateVideo,
+      onEnterBack: animateVideo,
+    });
+  },
 };
 </script>
 

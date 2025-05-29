@@ -1,39 +1,41 @@
 <template>
   <div class="hero">
     <div class="hero__header">
-      <img
-        src="../assets/images/heroDog.svg"
-        alt="ISA Logo Dog"
-        class="hero__logo"
-      />
+      <img :src="logoSrc" alt="Hero Logo" class="hero__logo" />
       <h1 class="hero__title">Innovative Solutions for Animals</h1>
     </div>
-    <p class="hero__subtitle">charity organization</p>
-    <ul class="hero__socials">
-      <li
-        v-for="(link, index) in socialLinks"
-        :key="index"
-        class="hero__social-item"
-      >
-        <a
-          :href="link.href"
-          target="_blank"
-          rel="noopener"
-          class="hero__social-link"
+    <div class="hero__content">
+      <p class="hero__subtitle">charity organization</p>
+      <ul class="hero__socials">
+        <li
+          v-for="(link, index) in socialLinks"
+          :key="index"
+          class="hero__social-item"
         >
-          <img :src="link.icon" :alt="link.name" class="hero__social-icon" />
-        </a>
-      </li>
-    </ul>
+          <a
+            :href="link.href"
+            target="_blank"
+            rel="noopener"
+            class="hero__social-link"
+          >
+            <img :src="link.icon" :alt="link.name" class="hero__social-icon" />
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
+import heroDog from "../assets/images/heroDog.svg";
+import heroCat from "../assets/images/heroCat.svg";
 import iconFacebook from "@/assets/images/iconFacebook.svg";
 import iconInstagram from "@/assets/images/iconInstagram.svg";
 import iconYoutube from "@/assets/images/iconYoutube.svg";
 import iconPatreon from "@/assets/images/iconPatreon.svg";
 import iconTelegram from "@/assets/images/iconTelegram.svg";
+
+import { gsap } from "@/plugins/gsap";
 
 export default {
   name: "HeroSection",
@@ -66,7 +68,55 @@ export default {
           icon: iconTelegram,
         },
       ],
+      logoSrc: heroDog,
+      showCat: false,
     };
+  },
+  mounted() {
+    const title = this.$el.querySelector(".hero__title");
+    gsap.fromTo(
+      title,
+      { x: 100, opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power2.out",
+      }
+    );
+
+    const logo = this.$el.querySelector(".hero__logo");
+    gsap.from(logo, {
+      y: -50,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power2.out",
+    });
+
+    const content = this.$el.querySelector(".hero__content");
+    gsap.from(content, {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out",
+    });
+
+    setInterval(() => {
+      this.showCat = !this.showCat;
+      gsap.fromTo(
+        logo,
+        { y: -50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power2.out",
+          onStart: () => {
+            this.logoSrc = this.showCat ? heroCat : heroDog;
+          },
+        }
+      );
+    }, 2000);
   },
 };
 </script>
@@ -91,7 +141,7 @@ export default {
 
   &__logo {
     width: 200px;
-    height: auto;
+    height: 200px;
   }
 
   &__title {
