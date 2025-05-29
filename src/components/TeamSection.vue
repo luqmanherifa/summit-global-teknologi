@@ -35,6 +35,9 @@ import teamYevchenko from "@/assets/images/teamYevchenko.jpg";
 import teamOffice from "@/assets/images/teamOffice.svg";
 import teamSeo from "@/assets/images/teamSeo.svg";
 
+import { nextTick } from "vue";
+import { gsap, ScrollTrigger } from "@/plugins/gsap";
+
 export default {
   name: "TeamSection",
   data() {
@@ -114,6 +117,29 @@ export default {
         },
       ],
     };
+  },
+  mounted() {
+    nextTick(() => {
+      const animateBatch = (batch) => {
+        gsap.fromTo(
+          batch,
+          { y: 50, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: { each: 0.1, amount: 0.3 },
+            ease: "power2.out",
+          }
+        );
+      };
+
+      ScrollTrigger.batch(".team__card", {
+        onEnter: animateBatch,
+        onEnterBack: animateBatch,
+        start: "top 90%",
+      });
+    });
   },
 };
 </script>

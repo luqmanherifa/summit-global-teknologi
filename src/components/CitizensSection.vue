@@ -42,6 +42,9 @@ import citizensVera from "@/assets/images/citizensVera.jpg";
 import citizensAndriy from "@/assets/images/citizensAndriy.jpg";
 import citizensAnastasia from "@/assets/images/citizensAnastasia.jpg";
 
+import { nextTick } from "vue";
+import { gsap, ScrollTrigger } from "@/plugins/gsap";
+
 export default {
   name: "CitizensSection",
   data() {
@@ -133,6 +136,29 @@ export default {
         },
       ],
     };
+  },
+  mounted() {
+    nextTick(() => {
+      const animateBatch = (batch) => {
+        gsap.fromTo(
+          batch,
+          { y: 50, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: { each: 0.1, amount: 0.3 },
+            ease: "power2.out",
+          }
+        );
+      };
+
+      ScrollTrigger.batch(".citizens__card", {
+        onEnter: animateBatch,
+        onEnterBack: animateBatch,
+        start: "top 90%",
+      });
+    });
   },
 };
 </script>
