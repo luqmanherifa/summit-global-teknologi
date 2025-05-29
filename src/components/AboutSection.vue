@@ -2,7 +2,7 @@
   <div class="about">
     <div class="about__intro">
       <h1 class="about__title">We are</h1>
-      <p class="about__desc">
+      <p class="about__description">
         team of like-minded people, socially active companies, media
         personalities, volunteers who help low-income shelters and foster carers
         to support homeless animals.
@@ -10,7 +10,7 @@
     </div>
     <div class="about__goal">
       <h1 class="about__title">Our primary goal</h1>
-      <p class="about__desc">
+      <p class="about__description">
         is to provide animals with the most necessary things - food, medicine,
         and urgent needs for the livelihood of shelters. We believe in our power
         and the power of conscious citizens who care about the environment and
@@ -24,7 +24,7 @@
         "Animals need to have friends. Just like humans." - James Herriot, All
         Creatures Great and Small</span
       >
-      <p class="about__desc">
+      <p class="about__description">
         Who else if not we should support our younger brothers, especially in
         difficult times? Let's be friends!
       </p>
@@ -48,7 +48,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding: 8rem;
+  padding: 9rem;
   text-align: left;
   color: #000000;
   background-color: white;
@@ -57,7 +57,7 @@ export default {
     font-size: 3.2rem;
   }
 
-  &__desc {
+  &__description {
     font-size: 2.2rem;
     line-height: 1.5;
     margin-top: 1rem;
@@ -69,7 +69,7 @@ export default {
     font-size: 1.25rem;
     margin: 2rem 2rem 2rem 5rem;
     padding-left: 1rem;
-    border-left: 4px solid pink;
+    border-left: 4px solid #ff97d0;
     font-size: 2.2rem;
     line-height: 1.5;
     width: 50rem;

@@ -16,7 +16,7 @@
         >
           <div class="projects__card">
             <h2 class="projects__name">{{ project.name }}</h2>
-            <p class="projects__desc">{{ project.desc }}</p>
+            <p class="projects__description">{{ project.description }}</p>
           </div>
         </li>
       </ul>
@@ -32,15 +32,18 @@ export default {
       projectsList: [
         {
           name: "Emergency Aid. WAR 2022.",
-          desc: "providing food and medicine to the shelters and animals which lost their homes and families due to the war",
+          description:
+            "providing food and medicine to the shelters and animals which lost their homes and families due to the war",
         },
         {
           name: "Non-commercial feed line",
-          desc: "construction of industrial production base where food for shelters will be produced on a free basis",
+          description:
+            "construction of industrial production base where food for shelters will be produced on a free basis",
         },
         {
           name: "Education and Control",
-          desc: "lectures on communication, organisation and coordination of processes, control over the use of aid",
+          description:
+            "lectures on communication, organisation and coordination of processes, control over the use of aid",
         },
       ],
     };
@@ -78,7 +81,7 @@ export default {
   &__card {
     padding: 3.5rem;
     color: white;
-    border: white 2px solid;
+    border: white 3px solid;
   }
 
   &__item:nth-child(1) .projects__card {
@@ -98,7 +101,7 @@ export default {
     margin-bottom: 0.5rem;
   }
 
-  &__desc {
+  &__description {
     font-size: 1.8rem;
     line-height: 1.3;
   }
