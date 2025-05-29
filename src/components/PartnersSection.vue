@@ -34,6 +34,9 @@ import partnersAccurl from "@/assets/images/partnersAccurl.png";
 import partnersLaudisAccountancy from "@/assets/images/partnersLaudisAccountancy.png";
 import partnersKickBite from "@/assets/images/partnersKickBite.jpeg";
 
+import { nextTick } from "vue";
+import { gsap, ScrollTrigger } from "@/plugins/gsap";
+
 export default {
   name: "PartnersSection",
   data() {
@@ -47,6 +50,29 @@ export default {
         { image: partnersKickBite, alt: "Logo Kick Bite" },
       ],
     };
+  },
+  mounted() {
+    nextTick(() => {
+      const animateBatch = (batch) => {
+        gsap.fromTo(
+          batch,
+          { y: 50, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: { each: 0.1, amount: 0.3 },
+            ease: "power2.out",
+          }
+        );
+      };
+
+      ScrollTrigger.batch(".partners__card", {
+        onEnter: animateBatch,
+        onEnterBack: animateBatch,
+        start: "top 90%",
+      });
+    });
   },
 };
 </script>

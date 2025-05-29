@@ -42,6 +42,9 @@ import iconYoutube from "@/assets/images/iconYoutube.svg";
 import iconPatreon from "@/assets/images/iconPatreon.svg";
 import iconTelegram from "@/assets/images/iconTelegram.svg";
 
+import { nextTick } from "vue";
+import { gsap } from "@/plugins/gsap";
+
 export default {
   name: "ContactSection",
   data() {
@@ -74,6 +77,25 @@ export default {
         },
       ],
     };
+  },
+  mounted() {
+    nextTick(() => {
+      gsap.fromTo(
+        ".contact__image",
+        { y: 100, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".contact__image",
+            start: "top 90%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    });
   },
 };
 </script>
