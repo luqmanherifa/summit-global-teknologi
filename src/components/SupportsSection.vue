@@ -1,17 +1,21 @@
 <template>
   <div class="supports">
-    <div>
-      <h1>We want to help</h1>
-      <p>
+    <div class="supports__header">
+      <h1 class="supports__title">We want to help</h1>
+      <p class="supports__description">
         homeless packs, volunteers, guardians, overstayers, shelters and other
         organisations
       </p>
     </div>
-    <div>
-      <ul>
-        <li v-for="(support, index) in supportsList" :key="index">
-          <div>
-            <h2>{{ support.name }}</h2>
+    <div class="supports__list-wrapper">
+      <ul class="supports__list">
+        <li
+          class="supports__item"
+          v-for="(support, index) in supportsList"
+          :key="index"
+        >
+          <div class="supports__card">
+            <h2 class="supports__name">{{ support.name }}</h2>
           </div>
         </li>
       </ul>
@@ -61,4 +65,55 @@ export default {
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.supports {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffff00;
+  padding: 9rem;
+  color: #000000;
+  text-align: left;
+
+  &__title {
+    font-size: 3.2rem;
+  }
+
+  &__description {
+    font-size: 2.2rem;
+    line-height: 1.5;
+    margin-top: 1rem;
+  }
+
+  &__list-wrapper {
+    margin-top: 4rem;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    gap: 3.2rem;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    display: flex;
+  }
+
+  &__card {
+    background-color: #ffffff;
+    border: 3px solid #000000;
+    padding: 2rem;
+    text-align: center;
+    width: 20rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__name {
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+}
+</style>
