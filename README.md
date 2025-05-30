@@ -15,6 +15,11 @@
   - GSAP
   - SCSS
 
+## System Requirements
+- **Node.js**: v14.0.0 or higher (tested on v22.14.0)  
+- **npm**: v6.0.0 or higher (tested on 10.9.2)  
+- **Vue CLI**: version 5.x (tested on 5.0.8)
+
 ## Getting Started
 ### Project setup
 ```
