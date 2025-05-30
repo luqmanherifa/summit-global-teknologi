@@ -7,6 +7,12 @@
   /* outline: 1px red solid; */
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "DM Sans", sans-serif;
   background-color: #fff;

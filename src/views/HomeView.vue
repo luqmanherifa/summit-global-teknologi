@@ -1,5 +1,11 @@
 <template>
   <div class="home">
+    <div>
+      <button class="home__fixed-button">
+        <p>donate</p>
+      </button>
+    </div>
+
     <HeroSection />
     <AboutSection />
     <ProjectsSection />
@@ -35,3 +41,52 @@ export default {
   },
 };
 </script>
+
+<style scoped lang="scss">
+.home__fixed-button {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  background-color: #ffffff;
+  border: none;
+  padding: 0.8rem;
+  cursor: pointer;
+  z-index: 1000;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #000000;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #000000;
+    transition: transform 0.3s ease;
+    transform: translate(0, 0);
+    z-index: -1;
+  }
+
+  p {
+    margin: 0;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+  }
+
+  &:hover p {
+    transform: translate(8px, -8px);
+    color: #000000;
+  }
+
+  &:hover::after {
+    transform: translate(8px, -8px);
+  }
+}
+</style>
