@@ -100,10 +100,41 @@ export default {
     gap: 2rem;
   }
 
+  &__item {
+    position: relative;
+    overflow: visible;
+    z-index: 10;
+  }
+
   &__card {
+    position: relative;
     padding: 3.5rem;
-    color: white;
-    border: white 3px solid;
+    background-color: inherit;
+    z-index: 1;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 3px solid white;
+      transition: transform 0.3s ease;
+      transform: translate(0, 0);
+      z-index: 99;
+      cursor: pointer;
+    }
+
+    &:hover::after {
+      transform: translate(15px, -15px);
+    }
+
+    &:hover .projects__name,
+    &:hover .projects__description {
+      transform: translate(15px, -15px);
+      cursor: pointer;
+    }
   }
 
   &__item:nth-child(1) .projects__card {
@@ -116,6 +147,13 @@ export default {
 
   &__item:nth-child(3) .projects__card {
     background-color: #ff97d0;
+  }
+
+  &__name,
+  &__description {
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 100;
   }
 
   &__name {
