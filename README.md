@@ -3,6 +3,10 @@
 ## Interface
 ![Interface](https://raw.githubusercontent.com/luqmanherifa/summit-global-teknologi/refs/heads/main/public/summit-global-teknologi.png)
 
+## Live Demo
+Check out the deployed app at:  
+[summit-global-teknologi.netlify.app](https://summit-global-teknologi.netlify.app)
+
 ## Software
 ### Languages
   - JavaScript
