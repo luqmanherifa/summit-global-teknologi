@@ -1,6 +1,22 @@
-# summit-global-teknologi
+# Summit Global Teknologi
 
-## Project setup
+## Interface
+![Interface](https://raw.githubusercontent.com/luqmanherifa/summit-global-teknologi/refs/heads/main/public/summit-global-teknologi.png)
+
+## Software
+### Languages
+  - JavaScript
+  - HTML/CSS
+
+### Frameworks
+  - Vue 3
+
+### Libraries
+  - GSAP
+  - SCSS
+
+## Getting Started
+### Project setup
 ```
 npm install
 ```
