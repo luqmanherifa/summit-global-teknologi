@@ -155,19 +155,46 @@ export default {
   }
 
   &__card {
+    position: relative;
     background-color: #ffffff;
-    border: 3px solid #000000;
     padding: 2rem;
     text-align: center;
     width: 20rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 3px solid #000000;
+      transition: transform 0.3s ease;
+      transform: translate(0, 0);
+      z-index: 99;
+      cursor: pointer;
+    }
+
+    &:hover::after {
+      transform: translate(15px, -15px);
+    }
+
+    &:hover .supports__name {
+      transform: translate(15px, -15px);
+      cursor: pointer;
+    }
   }
 
   &__name {
     font-size: 1.25rem;
     font-weight: 500;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 100;
   }
 
   &__button {
@@ -179,11 +206,18 @@ export default {
     cursor: pointer;
     font-weight: 600;
     border: 3px solid #000000;
+    align-items: center;
+    transition: background-color 0.3s ease;
   }
 
   &__icon {
     width: 2rem;
     margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+  }
+
+  .supports__button:hover .supports__icon {
+    transform: translateX(5px);
   }
 }
 </style>
