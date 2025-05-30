@@ -183,6 +183,7 @@ export default {
   }
 
   &__card {
+    position: relative;
     background-color: #fcf944;
     border: 3px solid #000000;
     text-align: center;
@@ -190,12 +191,53 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: none;
+    z-index: 1;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 3px solid #000000;
+      transition: transform 0.3s ease;
+      transform: translate(0, 0);
+      z-index: 99;
+      cursor: pointer;
+    }
+
+    &:hover::after {
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
+    }
+
+    &:hover .team__name,
+    &:hover .team__role {
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
   }
 
   &__photo {
     width: 170px;
     height: 170px;
     filter: grayscale(100%);
+    transition: transform 0.3s ease;
+  }
+
+  &__card:hover &__photo {
+    transform: scale(0.9);
+    cursor: pointer;
+  }
+
+  &__name,
+  &__role {
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 100;
   }
 
   &__name {
