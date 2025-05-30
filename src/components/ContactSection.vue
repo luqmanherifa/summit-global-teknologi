@@ -130,14 +130,23 @@ export default {
     padding: 0;
   }
 
-  &__image {
-    width: 540px;
-    height: auto;
+  &__social-link {
+    display: inline-block;
+
+    &:hover .contact__social-icon {
+      transform: scale(0.8);
+    }
   }
 
   &__social-icon {
     width: 48px;
     height: 48px;
+    transition: transform 0.3s ease;
+  }
+
+  &__image {
+    width: 540px;
+    height: auto;
   }
 }
 </style>

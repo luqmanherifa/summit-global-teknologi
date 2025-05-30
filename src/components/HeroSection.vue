@@ -171,11 +171,16 @@ export default {
     &:hover {
       text-decoration: underline;
     }
+
+    &:hover .hero__social-icon {
+      transform: scale(0.8);
+    }
   }
 
   &__social-icon {
     width: 48px;
     height: 48px;
+    transition: transform 0.3s ease;
   }
 }
 </style>
